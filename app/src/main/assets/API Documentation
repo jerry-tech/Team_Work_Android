@@ -1,0 +1,114 @@
+##Team work
+Main URL: https://myteamworkproject.herokuapp.com
+/*-------------------------------------------------*/
+----Login
+METHOD:POST
+content-type: application/json
+keys: email, password;
+endPoint: /v1/auth/signin
+fullURl: https://myteamworkproject.herokuapp.com/v1/auth/signin
+
+----Admin Register Users
+METHOD:POST
+content-type: application/json
+keys: firstName,lastName,email,password,gender,jobRole,dept,address,image;
+endPoint:/v1/auth/users;
+Full URL:"https://myteamworkproject.herokuapp.com/v1/auth/users";
+
+----Get All Feeds
+content-type: application/json
+keys:GET METHOD THEREFORE NO KEYS
+endPoint:/v1/feed;
+Full URL:https://myteamworkproject.herokuapp.com/v1/feed;
+
+----Insert TXT Post
+METHOD:POST
+content-type: application/json
+keys:title, article (Not nullable);
+endPoint:/v1/articles;
+Full URL:https://myteamworkproject.herokuapp.com/v1/articles;
+
+
+----Insert Img Post
+METHOD:POST
+keys:image,title (Not nullable);
+endPoint: /v1/gifs;
+Full URL:https://myteamworkproject.herokuapp.com/v1/gifs;
+
+
+----Update TXT Post
+METHOD:POST
+keys:id,title,article
+method:PATCH
+endPoint:
+Full URL:Full URL:https://myteamworkproject.herokuapp.com/v1/flagged/${postId}/Update;
+
+----Get a Particular Users Post
+METHOD:get
+endPoint:/v1/feed/${id};
+Full URL:https://myteamworkproject.herokuapp.com/v1/feed/${id};
+
+
+----Users Flag && Admin unFlag a Post
+METHOD:POST
+keys:flag value(t,f);
+endPoint:/v1/flagged/${postId};
+Full URL:https://myteamworkproject.herokuapp.com/v1/flagged/${postId};
+
+
+
+----Admin Delete Post
+method:DELETE
+endPoint:
+Full URL:
+
+---Users delete personal gif Post
+method:DELETE
+endPoint:/v1/articles/`{postID};
+Full URL:https://myteamworkproject.herokuapp.com/v1/articles/`{postID}`;
+
+---Users delete personal article Post
+method:DELETE
+endPoint:/v1/gifs/`{postID};
+Full URL:https://myteamworkproject.herokuapp.com/v1/gifs/`{postID}`;
+
+----Admin Get all Registered Users
+keys: GET METHOD THEREFORE NO KEYS
+endPoint:/v1/users
+Full URL:"https://myteamworkproject.herokuapp.com/v1/users";
+
+----all Txt Comment
+keys: GET METHOD THEREFORE NO KEYS
+endPoint:/v1/articles/`{postID};
+Full URL:https://myteamworkproject.herokuapp.com/v1/articles/`{postID}`;
+
+----all Gif Comment
+keys: GET METHOD THEREFORE NO KEYS
+endPoint:/v1/gifs/`{postID}`;
+Full URL:https://myteamworkproject.herokuapp.com/v1/gifs/`{postID}`;
+
+----Txt Comment INSERT
+METHOD:POST
+keys:comment
+let comment;
+Full URL:`${https://myteamworkproject.herokuapp.com/v1/articles}/${id}/${comment};
+
+----Gif Comment INSERT
+METHOD:POST
+keys:comment
+let comment;
+Full URL:Full URL:`${https://myteamworkproject.herokuapp.com/v1/gifs}/${id}/${comment};
+
+----GET txtPost by id;
+METHOD:GET
+endPoint:/v1/articles/${id};
+Full URL:${https://myteamworkproject.herokuapp.com/v1/articles}/${id}
+
+----Get GifPOST by Id
+METHOD:GET
+endPoint:/v1/gifs/${id};
+Full URL:${https://myteamworkproject.herokuapp.com/v1/gifs}/${id}
+
+
+
+
