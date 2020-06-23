@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">InterSocialNetWork</string>
+    <string name="team_work_mission">Fostering team building and bonding</string>
+    <string name="sign_in">Sign in</string>
+    <string name="or">or</string>
+    <string name="sign_up">Sign up</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="title_activity_user_options">UserOptions</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>
