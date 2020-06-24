@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.teamwork.teamwork.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_post"
+        android:name="com.teamwork.teamwork.ui.post.PostFragment"
+        android:label="@string/title_post"
+        tools:layout="@layout/fragment_post" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.teamwork.teamwork.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_profile"
+        android:name="com.teamwork.teamwork.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

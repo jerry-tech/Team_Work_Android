@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">InterSocialNetWork</string>
+    <string name="app_name">Team Work</string>
     <string name="team_work_mission">Fostering team building and bonding</string>
     <string name="sign_in">Sign in</string>
     <string name="or">or</string>
@@ -9,6 +9,17 @@
     <string name="login">Login</string>
     <string name="title_activity_user_options">UserOptions</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_post">Post</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_activity_users_post">UsersPost</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title">Title</string>
+    <string name="post_article">Post Article</string>
+    <string name="article_description">Article Description</string>
+    <string name="post_image">Post Image</string>
+    <string name="upload_image">Upload Image</string>
 </resources>
