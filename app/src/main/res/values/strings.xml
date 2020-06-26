@@ -22,4 +22,15 @@
     <string name="article_description">Article Description</string>
     <string name="post_image">Post Image</string>
     <string name="upload_image">Upload Image</string>
+    <string name="admin">Admin</string>
+    <string name="logout">Logout</string>
+    <string name="all_posts">All Posts</string>
+    <string name="are_you_sure_you_want_to_logout">Are you sure you want to logout ? You would\'nt be able to view posts if you do.</string>
+    <string name="cancel">Cancel</string>
+    <string name="comment">Comment</string>
+    <string name="udoh_jeremiah">Udoh Jeremiah</string>
+    <string name="nigeria">Nigeria</string>
+    <string name="flag">Flag</string>
+    <string name="title_activity_article_comment">ArticleComment</string>
+    <string name="title_activity_image_comment">ImageComment</string>
 </resources>
