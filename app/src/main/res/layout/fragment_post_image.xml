@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PostImage">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="10dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:paddingBottom="25dp">
+
+            <TextView
+                android:id="@+id/postHeading"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="5dp"
+                android:gravity="center"
+                android:text="@string/post_image"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutImgTitle"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColorHint="@color/colorBlack"
+                app:layout_constraintEnd_toEndOf="@+id/postHeading"
+                app:layout_constraintStart_toStartOf="@+id/postHeading"
+                app:layout_constraintTop_toBottomOf="@+id/postHeading">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/postImgTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableStart="@drawable/ic_title_black_24dp"
+                    android:drawablePadding="15dp"
+                    android:hint="@string/title"
+                    android:inputType="text"
+                    android:padding="20dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="17sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/ImgPreviewCon"
+                android:layout_width="0dp"
+                android:layout_height="300dp"
+                app:layout_constraintEnd_toEndOf="@+id/layoutImgTitle"
+                app:layout_constraintStart_toStartOf="@+id/layoutImgTitle"
+                app:layout_constraintTop_toBottomOf="@+id/layoutImgTitle">
+
+                <ImageView
+                    android:id="@+id/ImgPreview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/car"
+                    tools:ignore="ContentDescription" />
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/layoutImgPost"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rounded_border"
+                android:drawableStart="@drawable/ic_file_upload_black_24dp"
+                android:drawablePadding="15dp"
+                android:gravity="start|center"
+                android:paddingStart="20dp"
+                android:text="@string/upload_image"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorBlack"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/ImgPreviewCon"
+                app:layout_constraintStart_toStartOf="@+id/ImgPreviewCon"
+                app:layout_constraintTop_toBottomOf="@+id/ImgPreviewCon"
+                tools:ignore="RtlSymmetry" />
+
+
+            <Button
+                android:id="@+id/subArticle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/rounded_button"
+                android:text="@string/post_image"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/layoutImgPost"
+                app:layout_constraintStart_toStartOf="@+id/layoutImgPost"
+                app:layout_constraintTop_toBottomOf="@+id/layoutImgPost" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.core.widget.NestedScrollView>
