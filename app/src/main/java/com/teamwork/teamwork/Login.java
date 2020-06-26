@@ -22,54 +22,49 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-import es.dmoral.toasty.Toasty;
 
 public class Login extends AppCompatActivity {
-	//Container to hold email and password.
-	TextInputEditText email, password;
 	//Creating the tag to handle success or cancel events.
 	private static final String TAG = "LoginActivity";
-
 	//The url for the LoginAPI
 	private static final String URL_FOR_LOGIN = "https://myteamworkproject.herokuapp.com/v1/auth/signin";
 
 	ProgressDialog progressDialog;
+	TextInputEditText password, email;
 	Button loginBtn;
 
+
+
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_login);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
 
 		// Progress dialog
 		progressDialog = new ProgressDialog(this);
 		progressDialog.setCancelable(false);
-		//Getting the username, password and login button.
+		//Getting the email, password and login button.
 		email = findViewById(R.id.email);
 		password = findViewById(R.id.password);
 		loginBtn = findViewById(R.id.btnLogin);
 
-		//Setting the click event of the login button.
-		loginBtn.setOnClickListener(e -> {
-					if (email.getText().toString().equals("") || password.getText().toString().equals("")) {
-						Toast.makeText(this, "Email and Password cannot be empty.", Toast.LENGTH_SHORT).show();
-					} else {
 
-						loginUser(email.getText().toString(), password.getText().toString());
-
-					}
-
-				}
-
-		);
-
+		//Triggering the login button
+		loginBtn.setOnClickListener(e->{
+			if(email.getText().toString().equals("")||password.getText().toString().equals("")){
+				Toast.makeText(this, "Email and Password can't be empty", Toast.LENGTH_SHORT).show();
+			}
+			//Calling the login button.
+			else{
+				loginUser(email.getText().toString(),password.getText().toString());
+			}
+		});
 
 		//used for showing time
-		TextView timeLabel = findViewById(R.id.displayTime);
-		Calendar calendar = Calendar.getInstance();
-		timeLabel.setText(calendar.getTime().toString());
-	}
-
+        TextView timeLabel = findViewById(R.id.displayTime);
+        Calendar calendar = Calendar.getInstance();
+        timeLabel.setText(calendar.getTime().toString());
+    }
 	//Logic for login button.
 	private void loginUser(final String email, final String password) {
 		// Tag used to cancel the request
@@ -86,7 +81,7 @@ public class Login extends AppCompatActivity {
 
 				//Logic for correct login information
 				if (status.equalsIgnoreCase("success")) {
-					Toast.makeText(this, "Working Just FIne", Toast.LENGTH_SHORT).show();
+					Toast.makeText(this, "Working Well.", Toast.LENGTH_SHORT).show();
 				} else {
 
 					String errorMsg = jObj.getString("error");
@@ -99,7 +94,8 @@ public class Login extends AppCompatActivity {
 
 		}, error -> {
 			Log.e(TAG, "Login Error: " + error.getMessage());
-			Toast.makeText(this, "An Error occured from fetching.", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "Error Occured from fetching the data", Toast.LENGTH_SHORT).show();
+
 			hideDialog();
 		}) {
 			//Mapping the users input with the database user information
@@ -115,9 +111,6 @@ public class Login extends AppCompatActivity {
 		// Adding request to request queue
 		AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(strReq, cancel_req_tag);
 	}
-
-
-	//Logic for the dialog spinner.
 
 	private void showDialog() {
 		if (!progressDialog.isShowing())

@@ -12,8 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ImageComment"
+            android:label="@string/title_activity_image_comment"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ArticleComment"
+            android:label="@string/title_activity_article_comment"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".UserOptions"
-            android:label="@string/title_activity_user_options"></activity>
+            android:label="@string/title_activity_user_options" />
         <activity
             android:name=".Login"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
