@@ -50,6 +50,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/usersImg"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteY="16dp" />
 
             <TextView
@@ -67,45 +68,56 @@
                 app:layout_constraintTop_toBottomOf="@+id/pTitle"
                 app:lineHeight="20dp" />
 
-            <Button
-                android:id="@+id/btnComment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_comment_black_24dp"
-                android:paddingEnd="5dp"
-                android:drawablePadding="10dp"
-                android:text="@string/comment"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/PostContent"
-                tools:ignore="RtlSymmetry" />
-
-            <Button
-                android:id="@+id/btnFlag"
+            <LinearLayout
+                android:id="@+id/layClickables"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:drawableStart="@drawable/ic_flag_black_24dp"
-                android:drawablePadding="10dp"
-                android:paddingEnd="10dp"
-                android:text="@string/flag"
-                android:textAllCaps="false"
-                app:layout_constraintStart_toEndOf="@+id/btnComment"
-                app:layout_constraintTop_toBottomOf="@+id/PostContent"
-                tools:ignore="RtlSymmetry" />
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="@+id/PostContent"
+                app:layout_constraintEnd_toEndOf="@id/PostContent"
+                app:layout_constraintTop_toBottomOf="@+id/PostContent">
 
-            <TextView
-                android:id="@+id/txtDate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="10dp"
-                android:clickable="true"
-                android:padding="5dp"
-                android:text="2 months ago"
-                android:textSize="14sp"
-                app:layout_constraintStart_toEndOf="@+id/btnFlag"
-                app:layout_constraintTop_toBottomOf="@+id/PostContent"
-                android:focusable="true" />
+                <TextView
+                    android:id="@+id/btnComment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:layout_marginStart="8dp"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:drawableStart="@drawable/ic_comment_black_24dp"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:id="@+id/btnFlag"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:drawableStart="@drawable/ic_flag_black_24dp"
+                    android:textAllCaps="false"
+                    app:layout_constraintStart_toEndOf="@+id/btnComment"
+                    app:layout_constraintTop_toBottomOf="@+id/PostContent"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:id="@+id/txtDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100"
+                    android:layout_marginStart="2dp"
+                    android:clickable="true"
+                    android:padding="10dp"
+                    android:gravity="left"
+                    android:text="2 months ago"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@+id/btnFlag"
+                    app:layout_constraintTop_toBottomOf="@+id/PostContent"
+                    android:focusable="true" />
+
+            </LinearLayout>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

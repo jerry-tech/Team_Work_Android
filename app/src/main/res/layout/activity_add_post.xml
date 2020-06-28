@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/posting"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".AddPost">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <TextView
+                android:id="@+id/backPost"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="15dp"
+                android:adjustViewBounds="true"
+                android:drawableStart="@drawable/ic_arrow_back_black_24dp"
+                android:scaleType="centerInside"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="15dp"
+                android:adjustViewBounds="true"
+                android:gravity="start|center"
+                android:scaleType="centerInside"
+                android:text="@string/post_article_or_image"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="ContentDescription" />
+
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/postOptions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/appBar"
+        app:layout_constraintStart_toStartOf="@+id/appBar"
+        app:layout_constraintTop_toBottomOf="@id/appBar">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPagerPost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabTextColor="@color/colorWhite"
+                android:background="@color/colorPrimary">
+
+                <!--tab items created programmatically-->
+
+            </com.google.android.material.tabs.TabLayout>
+        </androidx.viewpager.widget.ViewPager>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,12 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/itemPosts"
-        android:title="@string/all_posts"
+        android:id="@+id/itemProfile"
+        android:title="@string/profile"
         app:showAsAction="never" />
     <item
         android:id="@+id/itemLogOut"
         android:title="@string/logout"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/userProfileImg"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher_round"
+        android:menuCategory="container"
+        android:title="@string/comment"
+        app:showAsAction="ifRoom|withText" />
 
 </menu>
