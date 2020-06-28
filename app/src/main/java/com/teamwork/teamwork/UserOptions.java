@@ -1,6 +1,7 @@
 package com.teamwork.teamwork;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -48,7 +49,6 @@ public class UserOptions extends AppCompatActivity implements PostImage.OnFragme
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         getMenuInflater().inflate(R.menu.top_navigation,menu);
         return true;
     }
@@ -58,8 +58,8 @@ public class UserOptions extends AppCompatActivity implements PostImage.OnFragme
 
         int id = item.getItemId();
 
-        if (id == R.id.itemPosts) {
-
+        if (id == R.id.itemProfile) {
+            startActivity(new Intent(this,Profile.class));
         }
         if (id == R.id.itemLogOut) {
             //calling the show logout method
@@ -78,7 +78,6 @@ public class UserOptions extends AppCompatActivity implements PostImage.OnFragme
         //----------------------------------------------------------
 
     }
-
     //method for log out cancel dialog
     public void cancelLogOutDialog() {
         myDialog.dismiss();

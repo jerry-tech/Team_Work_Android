@@ -53,6 +53,7 @@ public class Login extends AppCompatActivity {
 		loginBtn.setOnClickListener(e->{
 			if(email.getText().toString().equals("")||password.getText().toString().equals("")){
 				Toast.makeText(this, "Email and Password can't be empty", Toast.LENGTH_SHORT).show();
+				startActivity(new Intent(this,UserOptions.class));//subject to removal
 			}
 			//Calling the login button.
 			else{

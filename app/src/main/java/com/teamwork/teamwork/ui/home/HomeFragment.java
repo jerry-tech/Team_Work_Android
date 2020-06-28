@@ -1,19 +1,19 @@
 package com.teamwork.teamwork.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.teamwork.teamwork.AddPost;
 import com.teamwork.teamwork.R;
 
 public class HomeFragment extends Fragment {
@@ -30,10 +30,16 @@ public class HomeFragment extends Fragment {
         //display content
         final RecyclerView displayPosts = root.findViewById(R.id.list_posts);
         final LinearLayoutManager postLayoutManager = new LinearLayoutManager(getContext());
-
         displayPosts.setLayoutManager(postLayoutManager);
 
+        //floating action button
+        FloatingActionButton floatingActionButton = root.findViewById(R.id.fabAddPost);
+        floatingActionButton.setOnClickListener(event -> addPost());
         return root;
+    }
+    private void addPost(){
+        Intent intent = new Intent(getContext(), AddPost.class);
+        startActivity(intent);
     }
 
 }

@@ -1,62 +1,57 @@
-package com.teamwork.teamwork.ui.post;
+package com.teamwork.teamwork;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.os.Handler;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
+
 import com.google.android.material.tabs.TabLayout;
-import com.teamwork.teamwork.PostArticle;
-import com.teamwork.teamwork.PostImage;
-import com.teamwork.teamwork.R;
-import com.teamwork.teamwork.ui.profile.ProfileFragment;
+import com.teamwork.teamwork.ui.home.HomeFragment;
+import com.teamwork.teamwork.ui.users_post.UsersPostViewModel;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class PostFragment extends Fragment implements PostArticle.OnFragmentInteractionListener, PostImage.OnFragmentInteractionListener {
+public class AddPost extends AppCompatActivity implements PostArticle.OnFragmentInteractionListener, PostImage.OnFragmentInteractionListener {
 
-    private PostViewModel mPostViewModel;
+    private UsersPostViewModel mPostViewModel;
     private ViewPager viewPager;
     private TabLayout tabLayout;
-    private PostArticle  mPostArticle;
-    private PostImage  mPostImage;
+    private PostArticle mPostArticle;
+    private PostImage mPostImage;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-    }
-
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        mPostViewModel =
-                ViewModelProviders.of(this).get(PostViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_post,container, false);
-//        final TextView textView = root.findViewById(R.id.text_dashboard);
-//        mPostViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        setContentView(R.layout.activity_add_post);
 
         /*-------------------------------------------------------*/
-        viewPager = root.findViewById(R.id.viewPagerPost);
+        viewPager = findViewById(R.id.viewPagerPost);
 
-        tabLayout = root.findViewById(R.id.tabProfile);
+        tabLayout = findViewById(R.id.tabProfile);
 
         doTabLayoutItem();//calling the tab implementation method
-        return root;
+
+        //back arrow btn
+        TextView textView = findViewById(R.id.backPost);
+        textView.setOnClickListener(event -> handleBackIntent());
     }
-    private void  doTabLayoutItem(){
+
+    private void doTabLayoutItem() {
         /* instantiating the two fragment classes*/
         mPostArticle = new PostArticle();
         mPostImage = new PostImage();
@@ -66,19 +61,24 @@ public class PostFragment extends Fragment implements PostArticle.OnFragmentInte
 
 
         //setting the color of the icons
-        tabLayout.setTabIconTint(ContextCompat.getColorStateList(requireContext(), R.color.colorWhite));
+        tabLayout.setTabIconTint(ContextCompat.getColorStateList(getApplicationContext(), R.color.colorWhite));
 
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getFragmentManager(),0);
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), 0);
 
         //adding tabs title to the viewPager adapter
-        viewPagerAdapter.addFragment(mPostArticle,"Post Article");
-        viewPagerAdapter.addFragment(mPostImage,"Post Image");
+        viewPagerAdapter.addFragment(mPostArticle, "Post Article");
+        viewPagerAdapter.addFragment(mPostImage, "Post Image");
         viewPager.setAdapter(viewPagerAdapter);
 
 
         //adding icons to tabs
         Objects.requireNonNull(tabLayout.getTabAt(0)).setIcon(R.drawable.ic_postarticle_white_24dp);
         Objects.requireNonNull(tabLayout.getTabAt(1)).setIcon(R.drawable.ic_postimage_white_24dp);
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 
 
@@ -91,14 +91,15 @@ public class PostFragment extends Fragment implements PostArticle.OnFragmentInte
         private List<String> fragmentTitle = new ArrayList<>();
 
         ViewPagerAdapter(FragmentManager fm, int behaviour) {
-            super(fm,behaviour);
+            super(fm, behaviour);
         }
 
         //method used to add fragments
-        void addFragment(Fragment fragment, String title){
+        void addFragment(Fragment fragment, String title) {
             fragments.add(fragment);
             fragmentTitle.add(title);
         }
+
         //used get the fragment position
         @NonNull
         @Override
@@ -119,8 +120,24 @@ public class PostFragment extends Fragment implements PostArticle.OnFragmentInte
         }
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
 
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //Intent to back to home(when the back button is clicked)
+        handleBackIntent();
+    }
+
+    //method used to navigate back to Home Activity(Fragment to Activity)
+    public void handleBackIntent(){
+        new Handler().postDelayed(() -> {
+            this.finish();
+            HomeFragment fragment = new HomeFragment();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.posting, fragment);
+//            transaction.commit();
+        }, 1000);
     }
 }

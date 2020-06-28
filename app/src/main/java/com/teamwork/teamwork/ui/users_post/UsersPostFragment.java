@@ -1,29 +1,32 @@
-package com.teamwork.teamwork.ui.profile;
+package com.teamwork.teamwork.ui.users_post;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-
 import com.teamwork.teamwork.R;
 
-public class ProfileFragment extends Fragment {
+public class UsersPostFragment extends Fragment {
 
-    private ProfileViewModel notificationsViewModel;
+    private UsersPostViewModel mPostViewModel;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                ViewModelProviders.of(this).get(ProfileViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_profile, container, false);
+        mPostViewModel =
+                ViewModelProviders.of(this).get(UsersPostViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_users_post,container, false);
 
         return root;
     }
+
 }
