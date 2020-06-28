@@ -82,7 +82,7 @@ public class Login extends AppCompatActivity {
 				//Logic for correct login information
 				if (status.equalsIgnoreCase("success")) {
 					Toast.makeText(this, "Working Well.", Toast.LENGTH_SHORT).show();
-				} else {
+				} else if (status.equalsIgnoreCase("forbidden")){
 
 					String errorMsg = jObj.getString("error");
 					Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show();
