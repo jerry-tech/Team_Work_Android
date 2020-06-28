@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBlack"
     tools:context=".PostArticle">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:backgroundTint="@color/colorWhite"
         app:cardElevation="10dp"
         app:cardCornerRadius="12dp"
         android:layout_marginEnd="5dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
         >
-
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -101,19 +102,6 @@
                 app:layout_constraintStart_toStartOf="@+id/layoutPost"
                 app:layout_constraintTop_toBottomOf="@+id/layoutPost"
                 android:text="@string/post_article"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:textColor="@color/colorBlack"
-                android:gravity="center"
-                android:layout_marginTop="30sp"
-                android:text="@string/app_name"
-                app:layout_constraintEnd_toEndOf="@+id/subArticle"
-                app:layout_constraintStart_toStartOf="@+id/subArticle"
-                app:layout_constraintTop_toBottomOf="@+id/subArticle"
-                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

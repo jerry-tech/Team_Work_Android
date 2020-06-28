@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_post"
-        android:name="com.teamwork.teamwork.ui.post.PostFragment"
+        android:name="com.teamwork.teamwork.ui.users_post.UsersPostFragment"
         android:label="@string/title_post"
-        tools:layout="@layout/fragment_post" />
+        tools:layout="@layout/fragment_users_post" />
 
     <fragment
         android:id="@+id/navigation_profile"
