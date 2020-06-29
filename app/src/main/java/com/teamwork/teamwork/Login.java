@@ -34,11 +34,10 @@ public class Login extends AppCompatActivity {
 	Button loginBtn;
 
 
-
 	@Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_login);
 
 		// Progress dialog
 		progressDialog = new ProgressDialog(this);
@@ -50,22 +49,23 @@ public class Login extends AppCompatActivity {
 
 
 		//Triggering the login button
-		loginBtn.setOnClickListener(e->{
-			if(email.getText().toString().equals("")||password.getText().toString().equals("")){
+		loginBtn.setOnClickListener(e -> {
+			//Checking if the user detial is empty.
+			if (email.getText().toString().equals("") || password.getText().toString().equals("")) {
 				Toast.makeText(this, "Email and Password can't be empty", Toast.LENGTH_SHORT).show();
-				startActivity(new Intent(this,UserOptions.class));//subject to removal
 			}
-			//Calling the login button.
-			else{
-				loginUser(email.getText().toString(),password.getText().toString());
+			//Calling the login button if the email and password is not empty.
+			else {
+				loginUser(email.getText().toString(), password.getText().toString());
 			}
 		});
 
 		//used for showing time
-        TextView timeLabel = findViewById(R.id.displayTime);
-        Calendar calendar = Calendar.getInstance();
-        timeLabel.setText(calendar.getTime().toString());
-    }
+		TextView timeLabel = findViewById(R.id.displayTime);
+		Calendar calendar = Calendar.getInstance();
+		timeLabel.setText(calendar.getTime().toString());
+	}
+
 	//Logic for login button.
 	private void loginUser(final String email, final String password) {
 		// Tag used to cancel the request
@@ -80,12 +80,16 @@ public class Login extends AppCompatActivity {
 				JSONObject jObj = new JSONObject(response);
 				String status = jObj.getString("status");
 
+
 				//Logic for correct login information
 				if (status.equalsIgnoreCase("success")) {
 					Toast.makeText(this, "Working Well.", Toast.LENGTH_SHORT).show();
-				} else if (status.equalsIgnoreCase("forbidden")){
+					startActivity(new Intent(this, UserOptions.class));//subject to removal
 
+				}
+				else if (status.equalsIgnoreCase("forbidden")) {
 					String errorMsg = jObj.getString("error");
+
 					Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show();
 
 				}
@@ -95,7 +99,7 @@ public class Login extends AppCompatActivity {
 
 		}, error -> {
 			Log.e(TAG, "Login Error: " + error.getMessage());
-			Toast.makeText(this, "Error Occured from fetching the data", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "Error Occurred from fetching the data", Toast.LENGTH_SHORT).show();
 
 			hideDialog();
 		}) {
