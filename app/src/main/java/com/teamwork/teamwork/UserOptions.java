@@ -18,7 +18,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class UserOptions extends AppCompatActivity implements PostImage.OnFragmentInteractionListener,PostArticle.OnFragmentInteractionListener {
+public class UserOptions extends AppCompatActivity{
 
     private Dialog myDialog;
 
@@ -33,7 +33,7 @@ public class UserOptions extends AppCompatActivity implements PostImage.OnFragme
                 R.id.navigation_home, R.id.navigation_post, R.id.navigation_profile)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        NavigationUI.setupActionBarWithNavController(this,navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
         //dialog for log out option
@@ -42,10 +42,6 @@ public class UserOptions extends AppCompatActivity implements PostImage.OnFragme
 
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -58,9 +54,6 @@ public class UserOptions extends AppCompatActivity implements PostImage.OnFragme
 
         int id = item.getItemId();
 
-        if (id == R.id.itemProfile) {
-            startActivity(new Intent(this,Profile.class));
-        }
         if (id == R.id.itemLogOut) {
             //calling the show logout method
             showLogOutDialog();

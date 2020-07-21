@@ -3,6 +3,7 @@ package com.teamwork.teamwork;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -15,6 +16,7 @@ import com.android.volley.Request;
 import com.android.volley.toolbox.StringRequest;
 import com.google.android.material.textfield.TextInputEditText;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,17 +34,19 @@ public class Login extends AppCompatActivity {
 	ProgressDialog progressDialog;
 	TextInputEditText password, email;
 	Button loginBtn;
-
-
+	String userImage, jobRole, address, department, gender, emailAddress, firstName, lastName, dateOn, userId;
+	SharedPreferences preferences;
+	SharedPreferences.Editor editor;
 
 	@Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_login);
 
 		// Progress dialog
 		progressDialog = new ProgressDialog(this);
 		progressDialog.setCancelable(false);
+
 		//Getting the email, password and login button.
 		email = findViewById(R.id.email);
 		password = findViewById(R.id.password);
@@ -50,14 +54,14 @@ public class Login extends AppCompatActivity {
 
 
 		//Triggering the login button
-		loginBtn.setOnClickListener(e->{
-			if(email.getText().toString().equals("")||password.getText().toString().equals("")){
+		loginBtn.setOnClickListener(e -> {
+			if (email.getText().toString().equals("") || password.getText().toString().equals("")) {
 				Toast.makeText(this, "Email and Password can't be empty", Toast.LENGTH_SHORT).show();
-				startActivity(new Intent(this,UserOptions.class));//subject to removal
+				startActivity(new Intent(this, UserOptions.class));//subject to removal
 			}
 			//Calling the login button.
-			else{
-				loginUser(email.getText().toString(),password.getText().toString());
+			else {
+				loginUser(email.getText().toString(), password.getText().toString());
 			}
 		});
 
@@ -68,13 +72,15 @@ public class Login extends AppCompatActivity {
     }
 	//Logic for login button.
 	private void loginUser(final String email, final String password) {
+
+
 		// Tag used to cancel the request
 		String cancel_req_tag = "login";
 		progressDialog.setMessage("Logging you in...");
 		showDialog();
 		StringRequest strReq = new StringRequest(Request.Method.POST,
 				URL_FOR_LOGIN, response -> {
-			Log.d(TAG, "Login Response: " + response);
+
 			hideDialog();
 			try {
 				JSONObject jObj = new JSONObject(response);
@@ -82,7 +88,49 @@ public class Login extends AppCompatActivity {
 
 				//Logic for correct login information
 				if (status.equalsIgnoreCase("success")) {
-					Toast.makeText(this, "Working Well.", Toast.LENGTH_SHORT).show();
+					//storing the token in a string
+					String usersToken = jObj.getJSONObject("data").getString("token");
+
+					JSONArray userCredentials = jObj.getJSONObject("data").getJSONArray("userData");
+
+					//storing the user image URL in string
+					for (int i = 0; i < userCredentials.length(); i++) {
+						//getting the json object of the particular index inside the array
+						JSONObject postObject = userCredentials.getJSONObject(i);
+
+						userImage = postObject.getString("userImage");
+						jobRole = postObject.getString("jobRole");
+						gender = postObject.getString("gender");
+						department = postObject.getString("dept");
+						address = postObject.getString("address");
+						emailAddress = postObject.getString("email");
+						firstName = postObject.getString("firstName");
+						lastName = postObject.getString("lastName");
+						dateOn = postObject.getString("createdOn");
+						userId = postObject.getString("user_id");
+
+						Log.d("Users", userImage);
+					}
+
+
+					//add the token to android shared preferences
+					preferences = getSharedPreferences("User Details", Context.MODE_PRIVATE);
+					editor = preferences.edit();
+					editor.putString("token", usersToken);//adding token to android shared preferences
+					editor.putString("profileImage", userImage);//adding users image to android shared preferences
+					editor.putString("jobRole", jobRole);//adding job role to android shared preferences
+					editor.putString("gender", gender);//adding gender to android shared preferences
+					editor.putString("department", department);//adding department to android shared preferences
+					editor.putString("address", address);//adding address to android shared preferences
+					editor.putString("email", emailAddress);//adding email to android shared preferences
+					editor.putString("firstName", firstName);//adding firstName to android shared preferences
+					editor.putString("lastName", lastName);//adding lastName to android shared preferences
+					editor.putString("userId", userId);//adding userId to android shared preferences
+					editor.putString("dateCreated", dateOn);//adding date to android shared preferences
+					editor.apply();
+
+					startActivity(new Intent(this, UserOptions.class));
+
 				} else {
 
 					String errorMsg = jObj.getString("error");
@@ -91,6 +139,8 @@ public class Login extends AppCompatActivity {
 				}
 			} catch (JSONException e) {
 				e.printStackTrace();
+
+				Log.e("Errorzz", e.getMessage());
 			}
 
 		}, error -> {
@@ -122,4 +172,19 @@ public class Login extends AppCompatActivity {
 		if (progressDialog.isShowing())
 			progressDialog.dismiss();
 	}
+//	public void showResponseDialog(){
+//		MaterialAlertDialogBuilder(context)
+//				.setTitle(resources.getString(R.string.title))
+//				.setMessage(resources.getString(R.string.supporting_text))
+//				.setNeutralButton(resources.getString(R.string.cancel)) { dialog, which ->
+//			// Respond to neutral button press
+//		}
+//        .setNegativeButton(resources.getString(R.string.decline)) { dialog, which ->
+//			// Respond to negative button press
+//		}
+//        .setPositiveButton(resources.getString(R.string.accept)) { dialog, which ->
+//			// Respond to positive button press
+//		}
+//        .show()
+//	}
 }

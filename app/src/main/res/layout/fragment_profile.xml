@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -24,9 +26,9 @@
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="180dp"
-            android:layout_height="160dp"
+            android:layout_height="180dp"
             android:layout_marginStart="120dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="120dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,60 +36,59 @@
             app:layout_constraintTop_toTopOf="@+id/textView"
             tools:ignore="UselessLeaf">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileImage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/car"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/colorPrimary"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/textView"
+            app:layout_constraintStart_toStartOf="@id/textView"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout"
+            tools:ignore="UselessLeaf">
+
+            <TextView
+                android:id="@+id/pFirstName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="90"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:padding="7dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/nameCard"
             android:layout_width="0dp"
-            android:layout_margin="10dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="40dp"
+            android:layout_marginEnd="10dp"
+            app:cardElevation="12dp"
+            app:cardCornerRadius="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView"
             app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@id/linearLayout">
+            app:layout_constraintTop_toBottomOf="@id/layoutName">
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginBottom="20dp"
-                tools:ignore="UselessLeaf">
-
-                <TextView
-                    android:id="@+id/pFirstName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="100"
-                    android:gravity="right"
-                    android:padding="7dp"
-                    android:text="Jeremiah"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/pLastName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="100"
-                    android:padding="7dp"
-                    android:text="Udoh"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20sp"
-                    tools:layout_editor_absoluteY="50dp" />
-
-            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginTop="40dp"
+                android:padding="10dp"
                 app:layout_constraintEnd_toEndOf="@+id/nameCard"
                 app:layout_constraintStart_toStartOf="@+id/nameCard"
                 app:layout_constraintTop_toBottomOf="@id/nameCard"
@@ -99,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:text="Gender"
+                    android:text="@string/gender"
                     android:textColor="@color/colorBlack"
                     android:textSize="17sp"
                     android:textStyle="bold" />
@@ -110,7 +111,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:padding="7dp"
-                    android:text="Male"
                     android:textColor="@color/colorBlack"
                     android:textSize="15sp"
                     tools:layout_editor_absoluteY="50dp" />
@@ -119,8 +119,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="5dp"
-                    android:background="@color/colorBlack"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/colorBlack" />
 
                 <TextView
                     android:id="@+id/lEmail"
@@ -139,7 +139,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:padding="7dp"
-                    android:text="xyzxyxz@yahoo.com"
                     android:textColor="@color/colorBlack"
                     android:textSize="15sp"
                     tools:layout_editor_absoluteY="50dp" />
@@ -148,8 +147,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="5dp"
-                    android:background="@color/colorBlack"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/colorBlack" />
 
                 <TextView
                     android:id="@+id/lDepartment"
@@ -168,7 +167,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:padding="7dp"
-                    android:text="ICT"
                     android:textColor="@color/colorBlack"
                     android:textSize="15sp"
                     tools:layout_editor_absoluteY="50dp" />
@@ -177,8 +175,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="5dp"
-                    android:background="@color/colorBlack"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/colorBlack" />
 
                 <TextView
                     android:id="@+id/lJobRole"
@@ -186,7 +184,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:text="Job Role"
+                    android:text="@string/job_role"
                     android:textColor="@color/colorBlack"
                     android:textSize="17sp"
                     android:textStyle="bold" />
@@ -197,7 +195,34 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:padding="7dp"
-                    android:text="Tech"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    tools:layout_editor_absoluteY="50dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/colorBlack" />
+
+                <TextView
+                    android:id="@+id/lAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/address"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/pAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:padding="7dp"
                     android:textColor="@color/colorBlack"
                     android:textSize="15sp"
                     tools:layout_editor_absoluteY="50dp" />
@@ -209,4 +234,6 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.core.widget.NestedScrollView>
