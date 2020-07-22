@@ -1,11 +1,14 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="TextAppearence.App.TextInputLayout" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorBlack</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -13,8 +16,25 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="Body_ThemeOverlay.MaterialComponents.MaterialAlertDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="materialAlertDialogBodyTextStyle">@style/BodyMaterialAlertDialog.MaterialComponents.Body.Text</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/TitleMaterialAlertDialog</item>
+    </style>
+    <style name="BodyMaterialAlertDialog.MaterialComponents.Body.Text" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="TitleMaterialAlertDialog" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
 
 </resources>

@@ -39,4 +39,7 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="department">Department</string>
+    <string name="gender">Gender</string>
+    <string name="job_role">Job Role</string>
+    <string name="address">Address</string>
 </resources>

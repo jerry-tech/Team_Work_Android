@@ -10,7 +10,7 @@ public class UsersPostViewModel extends ViewModel {
 
     public UsersPostViewModel() {
         mText = new MutableLiveData<>();
-//        mText.setValue("This is dashboard fragment");
+        mText.setValue("This is dashboard fragment");
     }
 
     public LiveData<String> getText() {

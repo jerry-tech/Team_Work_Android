@@ -20,53 +20,57 @@
             android:layout_height="match_parent">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/usersImg"
+                android:id="@+id/usersImg2"
                 android:layout_width="110dp"
                 android:layout_height="90dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:paddingLeft="-12dp"
+                android:src="@drawable/car"
+                android:paddingStart="-12dp"
                 app:layout_constraintVertical_bias="0.0"
-                tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry"
+                tools:ignore="ContentDescription,RtlSymmetry"
                 app:civ_border_width="5dp"
                 app:civ_border_color="@color/colorPrimary"/>
 
             <TextView
-                android:id="@+id/pTitle"
+                android:id="@+id/pTitle2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="23dp"
                 android:textColor="@color/colorBlack"
                 android:textStyle="bold"
+                android:text="Udoh Jeremiah"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/usersImg"
-                app:layout_constraintTop_toBottomOf="@+id/btnFullname" />
+                app:layout_constraintStart_toEndOf="@+id/usersImg2"
+                app:layout_constraintTop_toBottomOf="@+id/btnFullname2" />
 
             <TextView
-                android:id="@+id/btnFullname"
+                android:id="@+id/btnFullname2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
+                android:text="Udoh Jeremiah"
                 android:textColor="@color/colorBlack"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/usersImg"
+                app:layout_constraintStart_toEndOf="@+id/usersImg2"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/postContent"
+
+            <ImageView
+                android:id="@+id/postImg"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:padding="3dp"
-                android:textColor="@color/colorBlack"
-                android:textSize="15sp"
-                app:layout_constraintRight_toRightOf="@+id/pTitle"
-                app:layout_constraintLeft_toLeftOf="@+id/usersImg"
-                app:layout_constraintTop_toBottomOf="@+id/pTitle"
-                />
+                android:layout_height="253dp"
+                android:src="@drawable/car"
+                android:layout_marginTop="10dp"
+                app:layout_constraintLeft_toLeftOf="@+id/usersImg2"
+                app:layout_constraintRight_toRightOf="@+id/pTitle2"
+                app:layout_constraintTop_toBottomOf="@id/pTitle2"
+                tools:ignore="ContentDescription" />
+
+
 
             <LinearLayout
                 android:id="@+id/layClickables"
@@ -74,12 +78,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="5dp"
-                app:layout_constraintStart_toStartOf="@+id/postContent"
-                app:layout_constraintEnd_toEndOf="@id/postContent"
-                app:layout_constraintTop_toBottomOf="@+id/postContent">
+                app:layout_constraintStart_toStartOf="@+id/postImg"
+                app:layout_constraintEnd_toEndOf="@id/postImg"
+                app:layout_constraintTop_toBottomOf="@+id/postImg">
 
                 <TextView
-                    android:id="@+id/btnComment"
+                    android:id="@+id/btnComment2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="46"
@@ -91,10 +95,11 @@
                     android:textStyle="bold"
                     android:textSize="15sp"
                     android:textColor="@color/colorBlack"
+                    android:text="15"
                     />
 
                 <TextView
-                    android:id="@+id/btnFlag"
+                    android:id="@+id/btnFlag2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="50"
@@ -108,10 +113,10 @@
                     android:text="Flag"
                     app:layout_constraintStart_toEndOf="@+id/btnComment"
                     app:layout_constraintTop_toBottomOf="@+id/PostContent"
-                   />
+                    />
 
                 <TextView
-                    android:id="@+id/txtDate"
+                    android:id="@+id/txtDate2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="100"
@@ -119,10 +124,8 @@
                     android:clickable="true"
                     android:padding="10dp"
                     android:gravity="start"
-                    android:textSize="14sp"
                     android:textColor="@color/colorBlack"
-                    app:layout_constraintStart_toEndOf="@+id/btnFlag"
-                    app:layout_constraintTop_toBottomOf="@+id/PostContent"
+                    android:textSize="14sp"
                     android:focusable="true" />
 
             </LinearLayout>

@@ -80,6 +80,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:tabTextColor="@color/colorWhite"
+                app:tabIndicatorColor="@color/colorWhite"
+                app:tabRippleColor="@color/colorWhite"
+                app:tabGravity="fill"
                 android:background="@color/colorPrimary">
 
                 <!--tab items created programmatically-->
