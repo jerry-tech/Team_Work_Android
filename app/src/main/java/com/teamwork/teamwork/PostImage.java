@@ -112,7 +112,7 @@ public class PostImage extends Fragment {
             Intent intent = new Intent();
             intent.setType("image/*");
             intent.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(intent,IMG_INTENT);
+            startActivityForResult(intent,IMG_INTENT); 
 
         });
 
