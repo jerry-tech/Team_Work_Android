@@ -36,9 +36,11 @@ public class Login extends AppCompatActivity {
 	ProgressDialog progressDialog;
 	TextInputEditText password, email;
 	Button loginBtn;
+
 	String userImage, jobRole, address, department, gender, emailAddress, firstName, lastName, dateOn, userId;
 	SharedPreferences preferences;
 	SharedPreferences.Editor editor;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,21 +59,24 @@ public class Login extends AppCompatActivity {
 
 		//Triggering the login button
 		loginBtn.setOnClickListener(e -> {
+
 			String errMess = "Email or Password can't be empty";
 			if (email.getText().toString().equals("") || password.getText().toString().equals("")) {
-				new ResponseDialog().showCancelableDialog("Login Error",errMess,R.drawable.ic_baseline_warning_24,Login.this, getResources().getDrawable(R.drawable.alert_bg,null));
+				new ResponseDialog().showCancelableDialog("Login Error", errMess, R.drawable.ic_baseline_warning_24, Login.this, getResources().getDrawable(R.drawable.alert_bg, null));
 			}
 			//Calling the login button.
 			else {
 				loginUser(email.getText().toString().trim(), password.getText().toString());
+
 			}
 		});
 
 		//used for showing time
-        TextView timeLabel = findViewById(R.id.displayTime);
-        Calendar calendar = Calendar.getInstance();
-        timeLabel.setText(calendar.getTime().toString());
-    }
+		TextView timeLabel = findViewById(R.id.displayTime);
+		Calendar calendar = Calendar.getInstance();
+		timeLabel.setText(calendar.getTime().toString());
+	}
+
 	//Logic for login button.
 	private void loginUser(final String email, final String password) {
 
@@ -87,8 +92,10 @@ public class Login extends AppCompatActivity {
 				JSONObject jObj = new JSONObject(response);
 				String status = jObj.getString("status");
 
+
 				//Logic for correct login information
 				if (status.equalsIgnoreCase("success")) {
+
 					//storing the token in a string
 					String usersToken = jObj.getJSONObject("data").getString("token");
 
@@ -134,12 +141,13 @@ public class Login extends AppCompatActivity {
 					startActivity(new Intent(this, UserOptions.class));
 
 
-				} else {
+				} else if (status.equalsIgnoreCase("forbidden")) {
 					String errorMsg = jObj.getString("error");
 					//material dialog response
-					new ResponseDialog().showCancelableDialog("Login Error",errorMsg,R.drawable.ic_baseline_error_outline_24,Login.this, getResources().getDrawable(R.drawable.alert_bg,null));
+					new ResponseDialog().showCancelableDialog("Login Error", errorMsg, R.drawable.ic_baseline_error_outline_24, Login.this, getResources().getDrawable(R.drawable.alert_bg, null));
 
 				}
+
 			} catch (JSONException e) {
 
 				//material dialog response
@@ -149,7 +157,6 @@ public class Login extends AppCompatActivity {
 
 		}, error -> {
 			Log.e(TAG, "Login Error: " + error.getMessage());
-//			Toast.makeText(this, "Error Occured from fetching the data", Toast.LENGTH_SHORT).show();
 
 			String err = "No Network available, check network connectivity.";
 			//material dialog response
