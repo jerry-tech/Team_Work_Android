@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.toolbox.StringRequest;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONArray;
@@ -55,13 +57,13 @@ public class Login extends AppCompatActivity {
 
 		//Triggering the login button
 		loginBtn.setOnClickListener(e -> {
+			String errMess = "Email or Password can't be empty";
 			if (email.getText().toString().equals("") || password.getText().toString().equals("")) {
-				Toast.makeText(this, "Email and Password can't be empty", Toast.LENGTH_SHORT).show();
-				startActivity(new Intent(this, UserOptions.class));//subject to removal
+				new ResponseDialog().showCancelableDialog("Login Error",errMess,R.drawable.ic_baseline_warning_24,Login.this, getResources().getDrawable(R.drawable.alert_bg,null));
 			}
 			//Calling the login button.
 			else {
-				loginUser(email.getText().toString(), password.getText().toString());
+				loginUser(email.getText().toString().trim(), password.getText().toString());
 			}
 		});
 
@@ -72,7 +74,6 @@ public class Login extends AppCompatActivity {
     }
 	//Logic for login button.
 	private void loginUser(final String email, final String password) {
-
 
 		// Tag used to cancel the request
 		String cancel_req_tag = "login";
@@ -129,24 +130,32 @@ public class Login extends AppCompatActivity {
 					editor.putString("dateCreated", dateOn);//adding date to android shared preferences
 					editor.apply();
 
+					//intent for successful login
 					startActivity(new Intent(this, UserOptions.class));
 
-				} else {
 
+				} else {
 					String errorMsg = jObj.getString("error");
-					Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show();
+					//material dialog response
+					new ResponseDialog().showCancelableDialog("Login Error",errorMsg,R.drawable.ic_baseline_error_outline_24,Login.this, getResources().getDrawable(R.drawable.alert_bg,null));
 
 				}
 			} catch (JSONException e) {
-				e.printStackTrace();
 
+				//material dialog response
+				new ResponseDialog().showCancelableDialog("Login catch",e.getMessage(),R.drawable.ic_baseline_error_outline_24,Login.this, getResources().getDrawable(R.drawable.alert_bg,null));
 				Log.e("Errorzz", e.getMessage());
 			}
 
 		}, error -> {
 			Log.e(TAG, "Login Error: " + error.getMessage());
-			Toast.makeText(this, "Error Occured from fetching the data", Toast.LENGTH_SHORT).show();
+//			Toast.makeText(this, "Error Occured from fetching the data", Toast.LENGTH_SHORT).show();
 
+			String err = "No Network available, check network connectivity.";
+			//material dialog response
+			new ResponseDialog().showCancelableDialog("Login Error",err,R.drawable.ic_baseline_error_outline_24,Login.this, getResources().getDrawable(R.drawable.alert_bg,null));
+
+			//hiding dialog
 			hideDialog();
 		}) {
 			//Mapping the users input with the database user information
@@ -172,19 +181,5 @@ public class Login extends AppCompatActivity {
 		if (progressDialog.isShowing())
 			progressDialog.dismiss();
 	}
-//	public void showResponseDialog(){
-//		MaterialAlertDialogBuilder(context)
-//				.setTitle(resources.getString(R.string.title))
-//				.setMessage(resources.getString(R.string.supporting_text))
-//				.setNeutralButton(resources.getString(R.string.cancel)) { dialog, which ->
-//			// Respond to neutral button press
-//		}
-//        .setNegativeButton(resources.getString(R.string.decline)) { dialog, which ->
-//			// Respond to negative button press
-//		}
-//        .setPositiveButton(resources.getString(R.string.accept)) { dialog, which ->
-//			// Respond to positive button press
-//		}
-//        .show()
-//	}
+
 }

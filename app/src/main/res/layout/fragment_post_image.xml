@@ -49,6 +49,7 @@
                 android:textColorHint="@color/colorBlack"
                 app:layout_constraintEnd_toEndOf="@+id/postHeading"
                 app:layout_constraintStart_toStartOf="@+id/postHeading"
+                app:boxStrokeColor="@color/colorBlack"
                 app:layout_constraintTop_toBottomOf="@+id/postHeading">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -67,7 +68,7 @@
             <LinearLayout
                 android:id="@+id/ImgPreviewCon"
                 android:layout_width="0dp"
-                android:layout_height="300dp"
+                android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="@+id/layoutImgTitle"
                 app:layout_constraintStart_toStartOf="@+id/layoutImgTitle"
                 app:layout_constraintTop_toBottomOf="@+id/layoutImgTitle">
@@ -78,14 +79,14 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="20dp"
                     android:src="@drawable/car"
+                    android:visibility="gone"
                     tools:ignore="ContentDescription" />
 
             </LinearLayout>
 
 
             <Button
-                android:id="@+id/layoutImgPost"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:id="@+id/btnSelectImg"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -105,7 +106,7 @@
 
 
             <Button
-                android:id="@+id/subArticle"
+                android:id="@+id/subImgArticle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="35dp"
@@ -114,9 +115,9 @@
                 android:textColor="@color/colorWhite"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/layoutImgPost"
-                app:layout_constraintStart_toStartOf="@+id/layoutImgPost"
-                app:layout_constraintTop_toBottomOf="@+id/layoutImgPost" />
+                app:layout_constraintEnd_toEndOf="@+id/btnSelectImg"
+                app:layout_constraintStart_toStartOf="@+id/btnSelectImg"
+                app:layout_constraintTop_toBottomOf="@+id/btnSelectImg" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

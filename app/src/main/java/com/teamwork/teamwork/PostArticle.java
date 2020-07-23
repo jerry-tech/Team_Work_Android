@@ -94,7 +94,16 @@ public class PostArticle extends Fragment {
         preferences = requireActivity().getSharedPreferences("User Details", Context.MODE_PRIVATE);
         token = preferences.getString("token", null);
 
-        btnPostArticle.setOnClickListener(v -> addPostArticle(articleTitle.getText().toString(), articleBody.getText().toString()));
+        btnPostArticle.setOnClickListener(v -> {
+            if(articleTitle.getText().toString().isEmpty() || articleBody.getText().toString().isEmpty()){
+                String warningMess = "Post title or description can't be empty";
+                //warning material dialog
+                new ResponseDialog().showCancelableDialog("Login Error",warningMess,R.drawable.ic_baseline_warning_24,getContext(), getResources().getDrawable(R.drawable.alert_bg,null));
+            }
+            else{
+                addPostArticle(articleTitle.getText().toString().trim(), articleBody.getText().toString());
+            }
+        });
 
         return root;
     }
