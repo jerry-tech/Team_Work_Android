@@ -102,6 +102,8 @@ public class PostArticle extends Fragment {
             }
             else{
                 addPostArticle(articleTitle.getText().toString().trim(), articleBody.getText().toString());
+                //Shwoing the users that the aritcle got posted.
+                Toast.makeText(root.getContext(), "Article Posted", Toast.LENGTH_SHORT).show();
             }
         });
 
