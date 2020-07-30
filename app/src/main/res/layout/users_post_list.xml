@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameDD"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="11dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/indImg"
+                android:layout_width="91dp"
+                android:layout_height="80dp"
+                android:src="@drawable/car"
+                app:civ_border_color="@color/colorPrimary"
+                app:civ_border_width="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/txtFullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Udoh Jeremiah"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toStartOf="@+id/txtDateCreated"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtDateCreated"
+                android:layout_width="125dp"
+                android:layout_height="23dp"
+                android:text="25 mins ago"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toStartOf="@+id/indImg"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Package Shipped"
+                android:layout_marginTop="20dp"
+                android:textSize="25sp"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintTop_toBottomOf="@+id/txtDateCreated"
+                app:layout_constraintLeft_toLeftOf="@+id/txtFullName" />
+
+            <TextView
+                android:id="@+id/txt_Content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:padding="3dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                android:text="Please note that if the web service supports caching output, you don't have to use CacheRequest below, because Volley will automatically cache."
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
+
+            <LinearLayout
+                android:id="@+id/linkBtns"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@id/txt_Content"
+                app:layout_constraintStart_toStartOf="@+id/txt_Content"
+                app:layout_constraintTop_toBottomOf="@+id/txt_Content">
+
+
+                <ImageButton
+                    android:id="@+id/btnArtComment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:src="@drawable/ic_comment_black_24dp"
+                    android:gravity="center"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:elevation="20dp"
+                    android:background="@color/colorWhite"
+                    android:padding="10dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="17sp"
+                    android:tooltipText="@string/comment"
+                    tools:ignore="ContentDescription,RtlSymmetry" />
+
+                <ImageButton
+                    android:id="@+id/btnUserFlag"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:src="@drawable/ic_flag_black_24dp"
+                    android:drawablePadding="10dp"
+                    android:gravity="start"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:elevation="20dp"
+                    android:background="@color/colorWhite"
+                    android:padding="10dp"
+                    android:textColor="@color/colorBlack"
+                    android:tooltipText="@string/flag"
+                    android:textSize="17sp"
+                    tools:ignore="ContentDescription,RtlHardcoded" />
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:src="@drawable/ic_baseline_update_24"
+                    android:drawablePadding="10dp"
+                    android:gravity="start"
+                    android:padding="10dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:elevation="20dp"
+                    android:background="@color/colorWhite"
+                    android:textColor="@color/colorBlack"
+                    android:tooltipText="Update"
+                    android:textSize="17sp"
+                    tools:ignore="ContentDescription,RtlHardcoded" />
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:src="@drawable/ic_baseline_delete_24"
+                    android:drawablePadding="10dp"
+                    android:gravity="start"
+                    android:padding="10dp"
+                    android:tooltipText="Delete"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:elevation="20dp"
+                    android:background="@color/colorWhite"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="17sp"
+                    tools:ignore="ContentDescription,RtlHardcoded" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>

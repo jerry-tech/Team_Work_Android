@@ -78,43 +78,50 @@
                 app:layout_constraintEnd_toEndOf="@id/postContent"
                 app:layout_constraintTop_toBottomOf="@+id/postContent">
 
-                <TextView
-                    android:id="@+id/btnComment"
+                <ImageButton
+                    android:id="@+id/btnMainComment"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="46"
-                    android:layout_marginStart="8dp"
-                    android:padding="10dp"
-                    android:drawablePadding="10dp"
+                    android:layout_weight="25"
+                    android:src="@drawable/ic_comment_black_24dp"
                     android:gravity="center"
-                    android:drawableStart="@drawable/ic_comment_black_24dp"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:elevation="20dp"
+                    android:background="@color/colorWhite"
+                    android:padding="10dp"
                     android:textColor="@color/colorBlack"
-                    />
+                    android:textSize="17sp"
+                    android:tooltipText="@string/comment"
+                    tools:ignore="ContentDescription,RtlSymmetry" />
 
-                <TextView
-                    android:id="@+id/btnFlag"
+                <ImageButton
+                    android:id="@+id/btnUserFlag"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:padding="10dp"
-                    android:gravity="center"
-                    android:drawableStart="@drawable/ic_flag_black_24dp"
-                    android:textAllCaps="false"
+                    android:layout_weight="25"
+                    android:src="@drawable/ic_flag_black_24dp"
                     android:drawablePadding="10dp"
-                    android:textSize="15sp"
+                    android:gravity="start"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:elevation="20dp"
+                    android:background="@color/colorWhite"
+                    android:padding="10dp"
                     android:textColor="@color/colorBlack"
-                    android:text="Flag"
-                    app:layout_constraintStart_toEndOf="@+id/btnComment"
-                    app:layout_constraintTop_toBottomOf="@+id/PostContent"
-                   />
+                    android:tooltipText="@string/flag"
+                    android:textSize="17sp"
+                    tools:ignore="ContentDescription,RtlHardcoded" />
+
 
                 <TextView
                     android:id="@+id/txtDate"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="100"
+                    android:layout_weight="50"
                     android:layout_marginStart="2dp"
                     android:clickable="true"
                     android:padding="10dp"

@@ -22,15 +22,18 @@ public class PostData {
         this.flagged = flagged;
         this.dateCreated = dateCreated;
     }
-    public PostData(int gif_id, int users_user_id, String imageUrl, String title, String lastName, String firstName, String userImage, String dateCreated) {
+
+    public PostData(int gif_id, int article_id, int users_user_id, String imageUrl, String title, String article, String flagged, String dateCreated) {
         this.gif_id = gif_id;
+        this.article_id = article_id;
         this.users_user_id = users_user_id;
         this.imageUrl = imageUrl;
         this.title = title;
-        this.lastName = lastName;
-        this.firstName = firstName;
+        this.article = article;
+        this.flagged = flagged;
         this.dateCreated = dateCreated;
     }
+
     public PostData(int article_id, int users_user_id, String title, String article, String lastName, String firstName, String userImage, String flagged, String dateCreated) {
         this.article_id = article_id;
         this.users_user_id = users_user_id;

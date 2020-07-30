@@ -20,68 +20,78 @@
             android:layout_height="match_parent">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/usersImg2"
-                android:layout_width="110dp"
-                android:layout_height="90dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/indImg2"
+                android:layout_width="91dp"
+                android:layout_height="80dp"
                 android:src="@drawable/car"
-                android:paddingStart="-12dp"
-                app:layout_constraintVertical_bias="0.0"
-                tools:ignore="ContentDescription,RtlSymmetry"
-                app:civ_border_width="5dp"
-                app:civ_border_color="@color/colorPrimary"/>
-
-            <TextView
-                android:id="@+id/pTitle2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="23dp"
-                android:textColor="@color/colorBlack"
-                android:textStyle="bold"
-                android:text="Udoh Jeremiah"
+                app:civ_border_color="@color/colorPrimary"
+                app:civ_border_width="3dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/usersImg2"
-                app:layout_constraintTop_toBottomOf="@+id/btnFullname2" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry" />
 
             <TextView
-                android:id="@+id/btnFullname2"
-                android:layout_width="0dp"
+                android:id="@+id/txtFullName2"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
                 android:text="Udoh Jeremiah"
                 android:textColor="@color/colorBlack"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="17sp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/txtDateCreated"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/usersImg2"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/txtDateCreated2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="25 mins ago"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toStartOf="@+id/indImg2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtTitle2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Package Shipped"
+                android:layout_marginTop="20dp"
+                android:textSize="25sp"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintTop_toBottomOf="@+id/txtDateCreated2"
+                app:layout_constraintLeft_toLeftOf="@+id/txtFullName2" />
 
             <ImageView
-                android:id="@+id/postImg"
+                android:id="@+id/img_Content2"
                 android:layout_width="match_parent"
                 android:layout_height="253dp"
                 android:src="@drawable/car"
                 android:layout_marginTop="10dp"
-                app:layout_constraintLeft_toLeftOf="@+id/usersImg2"
-                app:layout_constraintRight_toRightOf="@+id/pTitle2"
-                app:layout_constraintTop_toBottomOf="@id/pTitle2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtTitle2"
                 tools:ignore="ContentDescription" />
 
             <LinearLayout
-                android:id="@+id/layClickables"
+                android:id="@+id/linkBtns"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="5dp"
-                app:layout_constraintStart_toStartOf="@+id/postImg"
-                app:layout_constraintEnd_toEndOf="@id/postImg"
-                app:layout_constraintTop_toBottomOf="@+id/postImg">
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@id/img_Content2"
+                app:layout_constraintStart_toStartOf="@+id/img_Content2"
+                app:layout_constraintTop_toBottomOf="@+id/img_Content2">
+
 
                 <ImageButton
-                    android:id="@+id/btnArticleComment"
+                    android:id="@+id/btnImgComment"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="25"
@@ -118,25 +128,44 @@
                     android:textSize="17sp"
                     tools:ignore="ContentDescription,RtlHardcoded" />
 
-
-                <TextView
-                    android:id="@+id/txtDate2"
+                <ImageButton
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:layout_marginStart="2dp"
-                    android:clickable="true"
-                    android:padding="10dp"
+                    android:layout_weight="25"
+                    android:src="@drawable/ic_baseline_update_24"
+                    android:drawablePadding="10dp"
                     android:gravity="start"
+                    android:padding="10dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:elevation="20dp"
+                    android:background="@color/colorWhite"
                     android:textColor="@color/colorBlack"
-                    android:textSize="14sp"
-                    android:focusable="true" />
+                    android:tooltipText="Update"
+                    android:textSize="17sp"
+                    tools:ignore="ContentDescription,RtlHardcoded" />
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:src="@drawable/ic_baseline_delete_24"
+                    android:drawablePadding="10dp"
+                    android:gravity="start"
+                    android:padding="10dp"
+                    android:tooltipText="Delete"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:elevation="20dp"
+                    android:background="@color/colorWhite"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="17sp"
+                    tools:ignore="ContentDescription,RtlHardcoded" />
 
             </LinearLayout>
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     </androidx.cardview.widget.CardView>
 </FrameLayout>
