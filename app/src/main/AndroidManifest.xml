@@ -16,7 +16,7 @@
         <activity
             android:name=".AddPost"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-            />
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
         <activity
             android:name=".ImageComment"
             android:label="@string/title_activity_image_comment"

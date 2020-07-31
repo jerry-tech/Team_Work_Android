@@ -45,7 +45,6 @@
         android:backgroundTint="@color/colorBlack"
         android:contentDescription="@string/title_post"
         android:fragmentSharedElementEnterTransition="@style/Widget.MaterialComponents.FloatingActionButton"
-        android:src="@drawable/ic_add_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/list_posts"
         app:layout_constraintHorizontal_bias="0.958"

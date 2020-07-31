@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -79,6 +80,11 @@ public class PostImage extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        if (savedInstanceState == null) {
+            mBitmap = null;
+        } else {
+            mBitmap = savedInstanceState.getParcelable("bitmap");
+        }
     }
 
     @Override
@@ -101,7 +107,7 @@ public class PostImage extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_post_image, container, false);
+        View root = inflater.inflate(R.layout.fragment_post_image, container, true);
 
         previewImg = root.findViewById(R.id.ImgPreview);
         pstImgTitle = root.findViewById(R.id.postImgTitle);
@@ -112,7 +118,7 @@ public class PostImage extends Fragment {
             Intent intent = new Intent();
             intent.setType("image/*");
             intent.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(intent,IMG_INTENT); 
+            startActivityForResult(intent, IMG_INTENT);
 
         });
 
@@ -125,6 +131,13 @@ public class PostImage extends Fragment {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+//        bitmap = Bitmap.createBitmap(paintBoard.getBitmap());
+        outState.putParcelable("bitmap", mBitmap);
     }
 
     @Override
@@ -154,6 +167,7 @@ public class PostImage extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
+
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

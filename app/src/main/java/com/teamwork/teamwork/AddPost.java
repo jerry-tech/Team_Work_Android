@@ -1,5 +1,6 @@
 package com.teamwork.teamwork;
 
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -63,12 +64,13 @@ public class AddPost extends AppCompatActivity implements PostArticle.OnFragment
         //setting the color of the icons
         tabLayout.setTabIconTint(ContextCompat.getColorStateList(getApplicationContext(), R.color.colorWhite));
 
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), 0);
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
 
         //adding tabs title to the viewPager adapter
         viewPagerAdapter.addFragment(mPostArticle, "Post Article");
         viewPagerAdapter.addFragment(mPostImage, "Post Image");
         viewPager.setAdapter(viewPagerAdapter);
+        viewPager.setOffscreenPageLimit(1);
 
 
         //adding icons to tabs
@@ -96,8 +98,11 @@ public class AddPost extends AppCompatActivity implements PostArticle.OnFragment
 
         //method used to add fragments
         void addFragment(Fragment fragment, String title) {
-            fragments.add(fragment);
-            fragmentTitle.add(title);
+            if (fragment != null) {
+                fragments.add(fragment);
+                fragmentTitle.add(title);
+            }
+
         }
 
         //used get the fragment position
@@ -140,4 +145,6 @@ public class AddPost extends AppCompatActivity implements PostArticle.OnFragment
 //            transaction.commit();
         }, 1000);
     }
+
+
 }

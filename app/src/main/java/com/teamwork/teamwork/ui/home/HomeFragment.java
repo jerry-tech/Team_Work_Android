@@ -64,7 +64,7 @@ public class HomeFragment extends Fragment {
         floatingActionButton.setOnClickListener(event -> addPost());
 
         //getting android shared preference
-        //Getting the token of the user with shared preference.
+        //getting the token of the user with shared preference.
         preferences = requireActivity().getSharedPreferences("User Details", Context.MODE_PRIVATE);
         token = preferences.getString("token", null);
 
