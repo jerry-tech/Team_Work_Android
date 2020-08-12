@@ -12,6 +12,6 @@
         android:icon="@mipmap/ic_launcher_round"
         android:menuCategory="container"
         android:title="@string/comment"
-        app:showAsAction="ifRoom|withText" />
+        app:showAsAction="always" />
 
 </menu>

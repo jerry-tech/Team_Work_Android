@@ -17,9 +17,7 @@
             android:id="@+id/card_content"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             app:cardCornerRadius="3dp"
-            app:cardElevation="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -28,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingStart="10dp"
-                android:paddingTop="10dp"
+                android:paddingTop="15dp"
                 android:paddingEnd="10dp"
                 android:paddingBottom="15dp">
 
@@ -38,6 +36,20 @@
                     android:layout_height="80dp"
                     android:src="@drawable/car"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ProgressBar
+                    android:id="@+id/txtProgressComment"
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:backgroundTint="@color/colorBlack"
+                    android:progressBackgroundTint="@color/colorPrimary"
+                    android:progressTint="@color/colorPrimary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -91,67 +103,74 @@ your own private infrastructure, we have options."
                     app:layout_constraintStart_toStartOf="@id/clickContent"
                     app:layout_constraintTop_toBottomOf="@+id/clickContent" />
 
-                <LinearLayout
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/clickTextInput"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="@+id/clickDate"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="90"
+                    android:layout_marginRight="5dp"
+                    android:textColorHint="@color/colorBlack"
+                    app:boxStrokeColor="@color/colorBlack"
+                    app:hintTextColor="@color/colorBlack"
+                    app:layout_constraintEnd_toStartOf="@+id/subComment"
                     app:layout_constraintStart_toStartOf="@+id/clickDate"
                     app:layout_constraintTop_toBottomOf="@+id/clickDate">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/clickTextInput"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/comment"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:layout_weight="90"
-                        android:textColorHint="@color/colorBlack"
-                        app:boxStrokeColor="@color/colorBlack"
-                        app:hintTextColor="@color/colorBlack">
+                        android:layout_height="match_parent"
+                        android:hint="@string/comment"
+                        android:imeOptions="actionDone"
+                        android:inputType="textMultiLine"
+                        android:padding="20dp"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="17sp" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/comment"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:hint="@string/comment"
-                            android:inputType="textMultiLine"
-                            android:padding="20dp"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="17sp" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <Button
-                        android:id="@+id/button"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="30dp"
-                        android:layout_weight="170"
-                        android:padding="15dp"
-                        android:text="@string/comment"
-                        app:layout_constraintEnd_toEndOf="@+id/clickContent"
-                        app:layout_constraintTop_toBottomOf="@+id/clickContent" />
-
-                </LinearLayout>
+                <ImageButton
+                    android:id="@+id/subComment"
+                    android:layout_width="96dp"
+                    android:layout_height="61dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/rounded_button"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_baseline_near_me_24"
+                    app:layout_constraintEnd_toEndOf="@+id/clickDate"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/clickTextInput"
+                    app:layout_constraintTop_toBottomOf="@+id/clickDate" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list_post_comments"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/card_content"
-            tools:listitem="@layout/post_comment_list" />
+            app:layout_constraintTop_toBottomOf="@+id/card_content">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_post_comments"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:listitem="@layout/post_comment_list" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

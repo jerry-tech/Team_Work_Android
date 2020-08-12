@@ -23,7 +23,7 @@
             android:padding="10dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/comment_image"
+                android:id="@+id/comment_image2"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_marginTop="2dp"
@@ -32,7 +32,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/comment_name"
+                android:id="@+id/comment_name2"
                 android:layout_width="0dp"
                 android:layout_marginTop="20dp"
                 android:layout_height="wrap_content"
@@ -42,11 +42,11 @@
                 android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/comment_image"
+                app:layout_constraintEnd_toStartOf="@+id/comment_image2"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/comment_post"
+                android:id="@+id/comment_post2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -57,11 +57,11 @@ your own private infrastructure, we have options."
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/comment_name"
-                app:layout_constraintTop_toBottomOf="@+id/comment_name" />
+                app:layout_constraintStart_toStartOf="@+id/comment_name2"
+                app:layout_constraintTop_toBottomOf="@+id/comment_name2" />
 
             <TextView
-                android:id="@+id/comment_date"
+                android:id="@+id/comment_date2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="2 Months ago"
@@ -71,8 +71,8 @@ your own private infrastructure, we have options."
                 android:paddingBottom="10dp"
                 android:layout_marginTop="14dp"
                 app:layout_constraintEnd_toEndOf="@+id/comment_post"
-                app:layout_constraintStart_toStartOf="@+id/comment_post"
-                app:layout_constraintTop_toBottomOf="@+id/comment_post" />
+                app:layout_constraintStart_toStartOf="@+id/comment_post2"
+                app:layout_constraintTop_toBottomOf="@+id/comment_post2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

@@ -30,8 +30,8 @@
     <string name="udoh_jeremiah">Udoh Jeremiah</string>
     <string name="nigeria">Nigeria</string>
     <string name="flag">Flag</string>
-    <string name="title_activity_article_comment">ArticleComment</string>
-    <string name="title_activity_image_comment">ImageComment</string>
+    <string name="title_activity_article_comment">Comment</string>
+    <string name="title_activity_image_comment">Comment</string>
     <string name="post_article_or_image">Post Article or Image</string>
     <string name="about">About</string>
     <string name="title_activity_profile">Profile</string>

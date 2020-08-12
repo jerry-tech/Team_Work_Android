@@ -126,7 +126,7 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.View
         }
     }
 
-    //class fro user's article
+    //class for user's article
     public class UsersArticle extends RecyclerView.ViewHolder {
 
         public CircleImageView idImg;

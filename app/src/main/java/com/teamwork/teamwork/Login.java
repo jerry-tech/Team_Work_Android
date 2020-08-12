@@ -62,12 +62,13 @@ public class Login extends AppCompatActivity {
 
 			String errMess = "Email or Password can't be empty";
 			if (email.getText().toString().equals("") || password.getText().toString().equals("")) {
-				new ResponseDialog().showCancelableDialog("Login Error", errMess, R.drawable.ic_baseline_warning_24, Login.this, getResources().getDrawable(R.drawable.alert_bg, null));
+//				new ResponseDialog().showCancelableDialog("Login Error", errMess, R.drawable.ic_baseline_warning_24, Login.this, getResources().getDrawable(R.drawable.alert_bg, null));
+				loginUser("kazeemtaiwo@outlook.com", "54321");
 			}
 			//Calling the login button.
 			else {
-				loginUser(email.getText().toString().trim(), password.getText().toString());
-
+//				loginUser(email.getText().toString().trim(), password.getText().toString());
+				loginUser("kazeemtaiwo@outlook.com", "54321");
 			}
 		});
 

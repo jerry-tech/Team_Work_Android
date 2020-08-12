@@ -1,11 +1,13 @@
 package com.teamwork.teamwork;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -78,6 +80,9 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             new ImageDownloader(articleHolder.mUsersImg).execute(URL + "/images/" + postData.getUserImage());
             articleHolder.mUsersImg.setImageBitmap(bitmap);
 
+            //adding article Id
+            articleHolder.articleId = postData.getArticle_id();
+
         } else if (itemType == POST_IMAGE) {
 
             //calling the ImgViewHolder holder class and type casting the Recycler viewHolder to an ImgViewHolder Holder
@@ -130,14 +135,26 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         public TextView mPostTitle;
         public TextView mPostContent;
         public TextView mPostTime;
+        public ImageButton mCommentBtn;
+
+        //article Id
+        public int articleId;
 
         public ArticleHolder(@NonNull View itemView) {
             super(itemView);
             mUsersImg = itemView.findViewById(R.id.usersImg);
             mUsername = itemView.findViewById(R.id.btnFullname);
-            mPostTitle = (TextView) itemView.findViewById(R.id.pTitle);
+            mPostTitle = itemView.findViewById(R.id.pTitle);
             mPostContent = itemView.findViewById(R.id.postContent);
             mPostTime = itemView.findViewById(R.id.txtDate);
+            mCommentBtn = itemView.findViewById(R.id.btnMainComment);
+
+            //setting on click listener for one of the recycler view buttons
+            mCommentBtn.setOnClickListener(v -> {
+                Intent intent = new Intent(mContext, ArticleComment.class);
+                intent.putExtra("ArticleId", articleId);
+                mContext.startActivity(intent);
+            });
         }
     }
 

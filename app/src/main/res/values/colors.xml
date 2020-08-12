@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <color name="mtrl_textinput_default_box_stroke_color" tools:ignore="PrivateResource">#000</color>
+    <color name="mtrl_textinput_default_box_stroke_color" tools:ignore="PrivateResource">#000
+    </color>
     <color name="colorPrimary">#FF0000</color>
     <color name="colorPrimaryDark">#B71C1C</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorWhite">#fff</color>
     <color name="colorBlack">#000000</color>
 
-<!--    <color name="primaryColor">#d50000</color>-->
 
-<!--    <color name="primaryLightColor">#ff5131</color>-->
+    <color name="colorWhiteSmoke">#DCD9D9</color>
 
-<!--    <color name="primaryDarkColor">#9b0000</color>-->
+    <!--    <color name="primaryLightColor">#ff5131</color>-->
 
-<!--    <color name="secondaryColor">#212121</color>-->
+    <!--    <color name="primaryDarkColor">#9b0000</color>-->
 
-<!--    <color name="secondaryLightColor">#484848</color>-->
+    <!--    <color name="secondaryColor">#212121</color>-->
 
-<!--    <color name="secondaryDarkColor">#000000</color>-->
+    <!--    <color name="secondaryLightColor">#484848</color>-->
+
+    <!--    <color name="secondaryDarkColor">#000000</color>-->
 
 <!--    <color name="primaryTextColor">#ffffff</color>-->
 
